@@ -1,5 +1,5 @@
-#include <bits/stdc++.h>
 #include "ThreadPool.hpp"
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -332,7 +332,7 @@ bool propagate_move(int x, int y, bool is_first)
         }
 
         Fixed p = random01() * sum;
-        size_t d = std::ranges::upper_bound(tres, p) - tres.begin();
+        size_t d = tres[1] <= p ? (tres[2] <= p ? 3 : 2) : (tres[0] <= p ? 1 : 0);
 
         auto [dx, dy] = deltas[d];
         nx = x + dx;
